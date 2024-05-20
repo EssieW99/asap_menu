@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>{{ hotel_name }}</title>
+	</head>
+	<body>
+		<header>{{ hotel_name }}</header>
+		<main>
+			<h1>MENU</h1>
+			<section id="today">
+				<h3>Today's Special</h3>
+				<h5>{{ main_dish }}</h5>
+				<p>{{ description }}</p>
+				<img src="{{ image_url }}">
+				<h6>{{ price }}</h6>
+			</section>
+			<section id="side">
+				<h3>Sides</h3>
+				<ul>
+					{% for item in side_dishes %}
+					<li>{{ item.food }} - {{ item.price }}</li>
+					{% endfor %}
+				</ul>
+			</section>
+			<article>
+				{{ famous_food_quotes }}
+			</article>
+			<span>Contact Information: {{ email }}</span>
+		</main>
+		<footer>@asap_menus</footer>
+	</body>
+</html>
