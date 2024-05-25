@@ -18,6 +18,11 @@ def menu4():
     """catering menu"""
     return render_template('catering.html')
 
+@app.route('/menu5')
+def menu5():
+    """pizza menu"""
+    return render_template('pizza.html' )
+
 
 if __name__ == '__main__':
     app.run(debug=True)

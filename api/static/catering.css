@@ -61,23 +61,20 @@ header h1 {
 .menu-section ul li {
 	display: flex;
 	justify-content: space-between;
+	align-items: center;
 	margin-bottom: 10px;
 	font-size: 1.2em;
 	color: #555;
 	position: relative;
+	background-image: linear-gradient(to right, #000 33%, rgba(0,0,0,0) 0%);
+	background-position: bottom;
+	background-size: 10px 1px;
+	background-repeat: repeat-x;
+	padding-bottom: 3px;
 }
 
 .menu-section ul li span {
-	position: absolute;
-	right: 0;
-}
-
-.menu-section ul li::after {
-	content: '';
-	flex: 1;
-	border-bottom: 1px dotted #000;
-	margin: 0 10px;
-	align-self: center;
+	white-space: nowrap;
 }
 
 footer {
