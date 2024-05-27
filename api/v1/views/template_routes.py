@@ -69,7 +69,7 @@ def get_template(template_id):
 def get_templates():
     """ gets all the templates"""
     templates = storage.all(Template)
-    return jsonify([templates.to_dict() for template in templates]), 200
+    return jsonify([template.to_dict() for template in templates.values()]), 200
 
 @app_views.route('/thumbnails', methods=['GET'])
 def get_thumbnails():
@@ -80,19 +80,22 @@ def get_thumbnails():
 @app_views.route('/templates/<template_id>', methods=['PUT'])
 def update_template(template_id):
     """ updates the contents of a template """
+
+    template = storage.get(Template, template_id)
+    if not template:
+        return jsonify({'error': 'Template not found'}), 404
+    
     data = request.json
-
     updated_template = storage.update_template(template_id, data)
-    if not update_template:
-        return jsonify({'error': 'Update Failed'}), 404
-
-    return jsonify({'message': 'Templated updated successfully', 'template': updated_template.to_dict()}), 200
+        
+    return jsonify(updated_template.to_dict()), 200
 
 @app_views.route('/templates/<template_id>', methods=['DELETE'])
 def delete_template(template_id):
     """ deletes a template based on its id"""
-    template = storage.delete_template(template_id)
+    template = storage.get(Template, template_id)
     if not template:
-        return jsonify({'message': 'Template not found'}), 404
-
+        return jsonify({'error': 'Template not found'}), 404
+    
+    template = storage.delete_template(template_id)
     return jsonify({'message': 'Template deleted successfully'}), 200

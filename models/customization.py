@@ -20,8 +20,8 @@ class Customization(BaseModel):
     """ foreign keys"""
     user_id = Column(String(60), ForeignKey("users.id"), nullable=False )
     customization_data = Column(JSONB, nullable=False)
-    template_id = Column(String(60), ForeignKey("templates.id"), nullable=False)
+    template_id = Column(String(60), ForeignKey("templates.id"))
 
     """ relationship"""
-    user = relationship("User", backref="customizations")
-    template = relationship("Template", backref="templates", overlaps="Template,customizations")
+    user = relationship("User", backref="customizations_ref")
+
