@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Restaurant Menu Template</title>
+	<link rel="stylesheet" type="text/css" href='/static/restaurant.css'>
+</head>
+<body>
+	<div id="template">
+			<div class="menu-container">
+			<header>
+				<h1 contenteditable="true">My Restaurant Menu</h1>
+			</header>
+			<section class="menu">
+				<div class="menu-section" contenteditable="true">
+					<h2 contenteditable="true">Main Menu</h2>
+					<ul>
+						<li>vanilla milk shake <span>$4.00</span></li>
+						<li>ugali served with sukuma <span>$3.99</span></li>
+						<li>rice beans <span>$3.50</span></li>
+						<li>Chapo mandondo <span>$5.00</span></li>
+						<li>fish fillets <span>$8.00</span></li>
+						<li>roasted maize <span>$0.99</span></li>
+						<li>omellete <span>$10</span></li>
+						<li>rice veges <span>$3</span></li>
+					</ul>
+				</div>
+				<div class="menu-section" contenteditable="true">
+					<h2 contenteditable="true">Soft Drinks</h2>
+					<ul>
+						<li>fresh milk <span>$4.00</span></li>
+						<li>chill soda <span>$3.99</span></li>
+						<li>bottled water <span>$3.50</span></li>
+						<li>drink 4 <span>$5.00</span></li>
+						<li>drink 5 <span>$8.00</span></li>
+						<li>drink 6 <span>$0.99</span></li>
+						<li>drink 7 <span>$10</span></li>
+					</ul>
+				</div>
+				<div class="menu-section" contenteditable="true">
+					<h2 contenteditable="true">Pastry Menu</h2>
+					<ul>
+						<li>menu 1 <span>$4.00</span></li>
+						<li>menu 2 <span>$3.99</span></li>
+						<li>menu 3 <span>$3.50</span></li>
+						<li>menu 4 <span>$5.00</span></li>
+						<li>menu 5 <span>$8.00</span></li>
+						<li>menu 6 <span>$0.99</span></li>
+					</ul>
+				</div>
+				<div class="menu-section" contenteditable="true">
+					<h2 contenteditable="true">Dessert Menu</h2>
+					<ul>
+						<li>vanilla toppings <span>$4.00</span></li>
+						<li>chocolate icecream <span>$3.99</span></li>
+						<li>fresh salad <span>$3.50</span></li>
+						<li>dessert 4 <span>$5.00</span></li>
+						<li>dessert 5 <span>$8.00</span></li>
+						<li>dessert 6 <span>$0.99</span></li>
+					</ul>
+				</div>
+			</section>
+			<footer contenteditable="true">
+				<p>its never a dull day to treat yourself</p>
+			</footer>
+		</div>
+	</div>
+	<button id="saveButton">Save as PDF</button>
+	<button id="sendToServer">Send to Server</button>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.3.2/html2canvas.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+	<script src="/static/scripts/save.js"></script>
+	<script src="/static/scripts/restaurant.js"></script>
+
+</body>
+</html>
+

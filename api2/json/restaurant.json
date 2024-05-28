@@ -1,0 +1,134 @@
+{
+	"restaurant_name": "My Restaurant",
+	"menu_sections": [
+		{
+			"section_name": "Main Menu",
+			"items": [
+				{
+					"name": "vanilla milk shake",
+					"price": 4.00
+				},
+				{
+					"name": "ugali served with sukuma",
+					"price": 3.99
+				},
+				{
+					"name": "rice beans",
+					"price": 3.50
+				},
+				{
+					"name": "Chapo mandondo",
+					"price": 5.00
+				},
+				{
+					"name": "fish fillets",
+					"price": 8.00
+				},
+				{
+					"name": "roasted maize",
+					"price": 0.99
+				},
+				{
+					"name": "omellete",
+					"price": 10.00
+				},
+				{
+					"name": "rice veges",
+					"price": 3.00
+				}
+			]
+		},
+		{
+			"section_name": "Soft Drinks",
+			"items": [
+				{
+					"name": "fresh milk",
+					"price": 4.00
+				},
+				{
+					"name": "chill soda",
+					"price": 3.99
+				},
+				{
+					"name": "bottled water",
+					"price": 3.50
+				},
+				{
+					"name": "drink 4",
+					"price": 5.00
+				},
+				{
+					"name": "drink 5",
+					"price": 8.00
+				},
+				{
+					"name": "drink 6",
+					"price": 0.99
+				},
+				{
+					"name": "drink 7",
+					"price": 10.00
+				}
+			]
+		},
+		{
+			"section_name": "Pastry Menu",
+			"items": [
+				{
+					"name": "menu 1",
+					"price": 4.00
+				},
+				{
+					"name": "menu 2",
+					"price": 3.99
+				},
+				{
+					"name": "menu 3",
+					"price": 3.50
+				},
+				{
+					"name": "menu 4",
+					"price": 5.00
+				},
+				{
+					"name": "menu 5",
+					"price": 8.00
+				},
+				{
+					"name": "menu 6",
+					"price": 0.99
+				}
+			]
+		},
+		{
+			"section_name": "Dessert Menu",
+			"items": [
+				{
+					"name": "vanilla toppings",
+					"price": 4.00
+				},
+				{
+					"name": "chocolate icecream",
+					"price": 3.99
+				},
+				{
+					"name": "fresh salad",
+					"price": 3.50
+				},
+				{
+					"name": "dessert 4",
+					"price": 5.00
+				},
+				{
+					"name": "dessert 5",
+					"price": 8.00
+				},
+				{
+					"name": "dessert 6",
+					"price": 0.99
+				}
+			]
+		}
+	],
+	"footer_message": "its never a dull day to treat yourself"
+}

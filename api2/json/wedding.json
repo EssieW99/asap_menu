@@ -1,0 +1,37 @@
+{
+	"menu": {
+		"title": "Wedding Menu",
+		"items": [
+			{
+				"title": "Grilled Salmon",
+				"description": "Freshly grilled salmon served with vegetables.",
+				"price": 8.99
+			},
+			{
+				"title": "Happy Burger",
+				"description": "Juicy beef patty, just like my krabs krabby patty.",
+				"price": 4.99
+			},
+			{
+				"title": "Menu-Item",
+				"description": "Menu item description",
+				"price": 2.99
+			},
+			{
+				"title": "Menu-Item",
+				"description": "some item description",
+				"price": 0.99
+			},
+			{
+				"title": "Hungy-Much",
+				"description": "a drink appetizer for the hungry ones",
+				"price": 0.99
+			},
+			{
+				"title": "Barely-alive burger",
+				"description": "The burger of your dreams",
+				"price": 2.99
+			}
+		]
+	}
+}

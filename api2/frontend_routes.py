@@ -23,6 +23,12 @@ def menu5():
     """pizza menu"""
     return render_template('pizza.html' )
 
+@app.route('/menu6')
+def menu6():
+    """pizza menu"""
+    return render_template('example.html' )
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)

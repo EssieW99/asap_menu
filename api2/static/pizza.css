@@ -5,6 +5,12 @@ body {
 	background-color: #f8f8f8;
 }
 
+#template {
+	width: 210mm;
+	max-width: 100%;
+	box-sizing: border-box;
+}
+
 .menu {
 	max-width: 800px;
 	width: 100%;
@@ -68,4 +74,28 @@ body {
 .item-price {
 	font-size: 1.3em;
 	color: #666;
+}
+
+#saveButton {
+	position: fixed;
+	bottom: 60px;
+	right: 20px;
+	padding: 10px 15px;
+	color: white;
+	border: none;
+	cursor: pointer;
+	background-color: #4CAF50;
+	z-index: 1000;
+}
+
+#sendToServer {
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	padding: 10px 15px;
+	color: white;
+	border: none;
+	cursor: pointer;
+	background-color: #4CAF50;
+	z-index: 1000;
 }

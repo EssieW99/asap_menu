@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Pizza Menu Template</title>
+	<link rel="stylesheet" type="text/css" href="/static/pizza.css">
+</head>
+<body>
+	<div id="template">
+		<div class="menu">
+			<h2 contenteditable="true">Pizza Menu</h2>
+			<ul>
+				<li class="menu-item" contenteditable="true">
+					<span class="item-name">Pepperoni</span>
+					<span class="item-price">$5.99</span>
+				</li>
+				<li class="menu-item" contenteditable="true">
+					<span class="item-name">Hawaiian</span>
+					<span class="item-price">$5.99</span>
+				</li>
+				<li class="menu-item" contenteditable="true">
+					<span class="item-name">Mexican</span>
+					<span class="item-price">$5.99</span>
+				</li>
+				<li class="menu-item" contenteditable="true">
+					<span class="item-name">Kenyan</span>
+					<span class="item-price">$5.99</span>
+				</li>
+				<li class="menu-item" contenteditable="true">
+					<span class="item-name">Pineapple</span>
+					<span class="item-price">$5.99</span>
+				</li>
+				<li class="menu-item" contenteditable="true">
+					<span class="item-name">Crust</span>
+					<span class="item-price">$2.99</span>
+				</li>
+				<li class="menu-item" contenteditable="true">
+					<span class="item-name">Apple</span>
+					<span class="item-price">$8.99</span>
+				</li>
+			</ul>
+			<h2 contenteditable="true">Accompaniments</h2>
+			<ul>
+				<li class="drink-item" contenteditable="true">
+					<span class="item-name">Cold Soda</span>
+					<span class="item-price">$3.00</span>
+				</li>
+				<li class="drink-item" contenteditable="true">
+					<span class="item-name">Diet Coke</span>
+					<span class="item-price">$3.00</span>
+				</li>
+				<li class="drink-item" contenteditable="true">
+					<span class="item-name">Plain Soda</span>
+					<span class="item-price">$1.99</span>
+				</li>
+				<li class="drink-item" contenteditable="true">
+					<span class="item-name">Fruit Juice</span>
+					<span class="item-price">$2.99</span>
+				</li>
+				<li class="drink-item" contenteditable="true">
+					<span class="item-name">Water</span>
+					<span class="item-price">$0.00</span>
+				</li>
+		</div>
+	</div>
+	<button id="saveButton">Save as PDF</button>
+	<button id="sendToServer">Send to Server</button>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.3.2/html2canvas.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+	<script src="/static/scripts/save.js"></script>
+	<script src="/static/scripts/pizza.js"></script>
+
+</body>
+</html>

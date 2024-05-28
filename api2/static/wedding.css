@@ -10,6 +10,12 @@ body {
 	min-height: 100vh;
 }
 
+#template {
+	width: 210mm;
+	max-width: 100%;
+	box-sizing: border-box;
+}
+
 .container {
 	max-width: 800px;
 	width: 100%;
@@ -83,4 +89,28 @@ header h1 {
 footer {
 	text-align: right;
 	color: #E29578;
+}
+
+#saveButton {
+	position: fixed;
+	bottom: 60px;
+	right: 20px;
+	padding: 10px 15px;
+	color: white;
+	border: none;
+	cursor: pointer;
+	background-color: #4CAF50;
+	z-index: 1000;
+}
+
+#sendToServer {
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	padding: 10px 15px;
+	color: white;
+	border: none;
+	cursor: pointer;
+	background-color: #4CAF50;
+	z-index: 1000;
 }

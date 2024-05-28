@@ -1,0 +1,41 @@
+{
+	"title": "Catering Menu Template",
+	"sections": [
+		{
+			"title": "Breakfast",
+			"items": [
+				{"name": "Vanilla Milk Shake", "price": "$4.00"},
+				{"name": "Ugali served with Sukuma", "price": "$3.99"},
+				{"name": "Rice Beans", "price": "$3.50"},
+				{"name": "Chapo Mandondo", "price": "$5.00"},
+				{"name": "Fish Fillets", "price": "$8.00"}
+			]
+		},
+		{
+			"title": "Drinks",
+			"items": [
+				{"name": "Fresh Milk", "price": "$4.00"},
+				{"name": "Chill Soda", "price": "$3.99"},
+				{"name": "Bottled Water", "price": "$3.50"},
+				{"name": "Drink 4", "price": "$5.00"}
+			]
+		},
+		{
+			"title": "Lunch and Supper",
+			"items": [
+				{"name": "Menu 1", "price": "$4.00"},
+				{"name": "Menu 2", "price": "$3.99"},
+				{"name": "Menu 3", "price": "$3.50"},
+				{"name": "Menu 4", "price": "$5.00"}
+			]
+		},
+		{
+			"title": "Dessert Menu",
+			"items": [
+				{"name": "Vanilla Toppings", "price": "$4.00"},
+				{"name": "Chocolate Ice Cream", "price": "$3.99"},
+				{"name": "Fresh Salad", "price": "$3.50"}
+			]
+		}
+	]
+}
