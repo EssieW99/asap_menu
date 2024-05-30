@@ -5,7 +5,8 @@ document.getElementById('templateform').addEventListener('submit', function(even
 	createTemplate(formData);
 });
 
-let templateId;
+const urlParams = new URLSearchParams(window.location.search);
+const templateId = urlParams.get('id');
 
 //function to create a new template
 function createTemplate(formData) {

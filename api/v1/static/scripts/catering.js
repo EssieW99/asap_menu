@@ -1,7 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
 	const sendToServer = document.getElementById('sendToServer');
 	const deleteButton = document.getElementById('deleteButton');
-	let customizationId;
+	const urlParams = new URLSearchParams(window.location.search);
+	const customizationId = urlParams.get('id');
 
 	sendToServer.addEventListener('click', sendCateringDataToServer);
 	deleteButton.addEventListener('click', () => {
@@ -11,16 +12,20 @@ document.addEventListener('DOMContentLoaded', () => {
 	});
 
 	//populate json data when page loads
-	loadCateringData();
+	if (customizationId) {
+		loadCateringData(customizationId);
+	}
+	else {
+		console.error('Customization id not found in url')
+	}
 
 });
 
 
-function loadCateringData() {
+function loadCateringData(customizationId) {
 	fetch(`/api/v1/customizations/${customizationId}`)
 	.then(response => response.json()) //convert to json
 	.then(data => {
-		customizationId = data.customization_id;
 		populateTemplate(data);
 	})
 	.catch(error => {

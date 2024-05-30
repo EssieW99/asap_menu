@@ -8,7 +8,7 @@ app = Flask(__name__)
 @app_views.route('/menu2')
 def menu2():
     """display other menu"""
-    return render_template('restaurant.html')
+    return render_template('menu_templates/restaurant.html')
 
 @app_views.route('/menu3')
 def menu3():

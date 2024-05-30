@@ -5,7 +5,7 @@ import models
 from models.base_model import BaseModel
 from models.template import Template
 import sqlalchemy
-from sqlalchemy import Column, String, ForeignKey
+from sqlalchemy import Column, String, ForeignKey, PrimaryKeyConstraint, Integer
 from sqlalchemy.orm import relationship
 from sqlalchemy.dialects.postgresql import JSONB
 
@@ -18,7 +18,8 @@ class Customization(BaseModel):
     __tablename__ = "customizations"
 
     """ foreign keys"""
-    user_id = Column(String(60), ForeignKey("users.id"), nullable=False )
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    user_id = Column(String(60), ForeignKey("users.id"), nullable=False, autoincrement=True)
     customization_data = Column(JSONB, nullable=False)
     template_id = Column(String(60), ForeignKey("templates.id"))
 

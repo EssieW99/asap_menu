@@ -6,6 +6,7 @@ loginForm.addEventListener('submit', (event) => {
 
 	const username = document.getElementById('username').value;
 	const password = document.getElementById('password').value;
+	const email = document.getElementById('email').value;
 	
 	// Replace with your actual backend API endpoint URL
 	const url = 'http://your_backend_url/api/v1/login';
@@ -13,6 +14,7 @@ loginForm.addEventListener('submit', (event) => {
 	// Create a request object with credentials 
 	const data = {
 		username,
+		email,
 	        password,
 	};
 		

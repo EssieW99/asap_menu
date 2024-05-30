@@ -1,7 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
 	const sendToServer = document.getElementById('sendToServer');
 	const deleteButton = document.getElementById('deleteButton');
-	let customizationId;
+	const urlParams = new URLSearchParams(window.location.search);
+	const customizationId = urlParams.get('id');;
 
 	sendToServer.addEventListener('click', sendPizzaDataToServer);
 	deleteButton.addEventListener('click', () => {
@@ -11,7 +12,12 @@ document.addEventListener('DOMContentLoaded', () => {
 	});
 
 	//load pizza data when page loads
-	loadPizzaData();
+	if (customizationId) {
+		loadPizzaData(customizationId);
+	}
+	else {
+		console.error('customization id not found in url');
+	}
 });
 
 
@@ -19,7 +25,6 @@ function loadPizzaData(customizationId) {
 	fetch(`api/v1/customizations/${customizationId}`)
 	.then(response => response.json()) //convert to json
 	.then(data => {
-		customizationId = data.customization_id;
 		populatePizzaTemplate(data); // populate pizza template with retrieved data
 	})
 	.catch(error => {

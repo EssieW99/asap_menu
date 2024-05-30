@@ -16,7 +16,7 @@ class User(BaseModel):
 
     __tablename__ = "users"
 
-    id = Column(String(60), primary_key=True)
+    id = Column(String(60), primary_key=True, autoincrement=True)
     username = Column(String(128), nullable=False, unique=True)
     email = Column(String(128), nullable=False)
     password_hash = Column(String(128), nullable=False)

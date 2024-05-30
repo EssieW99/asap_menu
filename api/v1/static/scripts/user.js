@@ -1,4 +1,5 @@
-let userId;
+const urlParams = new URLSearchParams(window.location.search);
+const userId = urlParams.get('id');
 
 // Function to create a new user
 function createUser(username, email, password) {

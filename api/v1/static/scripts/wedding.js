@@ -1,7 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
 	const sendToServer = document.getElementById('sendToServer');
 	const deleteButton = document.getElementById('deleteButton');
-	let customizationId;
+	const urlParams = new URLSearchParams(window.location.search);
+	const customizationId = urlParams.get('id');
 
 	sendToServer.addEventListener('click', sendWeddingDataToServer);
 	deleteButton.addEventListener('click', () => {
@@ -10,15 +11,18 @@ document.addEventListener('DOMContentLoaded', () => {
 		}
 	});
 
-	//populate json data when page loads
-	loadWeddingData();
+	if (customizationId) {
+		loadWeddingData(customizationId);
+	}
+	else {
+		console.error('Customization id not found in url');
+	}
 });
 
 function loadWeddingData(customizationId) {
 	fetch(`/api/v1/customizations/${customizationId}`)
 	.then(response => response.json()) //convert to json
 	.then(data => {
-		customizationId = data.customization_id;
 		populateWeddingHTML(data);
 	})
 	.catch(error => {
@@ -54,7 +58,8 @@ function populateWeddingHTML(data) {
 		const price = document.createElement('p');
 	        price.classList.add('menu-item-price');
 	        price.textContent = `$${item.price.toFixed(2)}`;
-                                                                                                                                 contentDiv.appendChild(title);
+
+                contentDiv.appendChild(title);
 		contentDiv.appendChild(description);
 		contentDiv.appendChild(price);
 		article.appendChild(contentDiv);
