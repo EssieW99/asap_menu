@@ -14,7 +14,7 @@ function createUser(username, email, password) {
 			return response.json();
 		}
 		else {
-			console.error('Failed to create user:', error);
+			console.error('Failed to create user:');
 		}
         })
         .then(data => {
@@ -34,7 +34,7 @@ function getAllUsers() {
 			return response.json();
 		}
 		else {
-			console.error('Failed to fetch users:', error);
+			console.error('Failed to fetch users:');
 		}
 	})
 	.then(users => {
@@ -53,7 +53,7 @@ function getUserById(userId) {
 			return response.json();
 		}
 		else {
-			console.error('Failed to fetch user:', error);
+			console.error('Failed to fetch user:');
 		}
 	})
 	.then(user => {
@@ -78,7 +78,7 @@ function updateUser(userId, userData) {
 			return response.json();
 		}
 		else {
-			console.error('Failed to update user:', error);
+			console.error('Failed to update user:');
 		}
 	})
 	.then(data => {
@@ -99,7 +99,7 @@ function deleteUser(userId) {
 			console.log('User successfully deleted');
 		}
 		else {
-			console.error('Failed to delete user:', error);
+			console.error('Failed to delete user:');
 		}
 	})
 	.catch(error => {

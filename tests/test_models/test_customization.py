@@ -1,10 +1,12 @@
+import unittest
 from models.base_model import BaseModel
 from models.customization import Customization
 from models.user import User
 from models.template import Template
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-import unittest
+from sqlalchemy.exc import IntegrityError
+
 
 class TestCustomizationModel(unittest.Testcase):
     """tests class customization"""

@@ -25,6 +25,12 @@ def menu5():
     """pizza menu"""
     return render_template('pizza.html' )
 
+@app_views.route('/createmenu')
+def menuform():
+    """provide a menu form to create a menu"""
+    return render_template('create_template.html')
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)
