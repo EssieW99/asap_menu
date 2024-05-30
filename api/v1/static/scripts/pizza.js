@@ -1,15 +1,25 @@
 document.addEventListener('DOMContentLoaded', () => {
 	const sendToServer = document.getElementById('sendToServer');
+	const deleteButton = document.getElementById('deleteButton');
+	let customizationId;
+
 	sendToServer.addEventListener('click', sendPizzaDataToServer);
+	deleteButton.addEventListener('click', () => {
+		if (customizationId) {
+			deletePizzaData(customizationId);
+		}
+	});
 
 	//load pizza data when page loads
 	loadPizzaData();
-);
+});
 
-function loadPizzaData() {
-	fetch('/endpoint where pizza-data is saved')
+
+function loadPizzaData(customizationId) {
+	fetch(`api/v1/customizations/${customizationId}`)
 	.then(response => response.json()) //convert to json
 	.then(data => {
+		customizationId = data.customization_id;
 		populatePizzaTemplate(data); // populate pizza template with retrieved data
 	})
 	.catch(error => {
@@ -70,7 +80,7 @@ function serializePizzaHTMLtoJSON() {
 function sendPizzaDataToServer() {
 	const jsonData = serializePizzaHTMLtoJSON();
 
-	fetch('/your/server/endpoint', {
+	fetch('/api/v1/customizations', {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json'
@@ -87,5 +97,47 @@ function sendPizzaDataToServer() {
 	})
 	.catch(error => {
 		console.error('Error:', error);
+	});
+}
+
+//function to update existing pizza data
+function updatePizzaData(customizationId) {
+	const jsonData = serializePizzaHTMLtoJSON();
+
+	fetch(`/api/v1/customizations/${customizationId}`, {
+		method: 'PUT',
+		headers: {
+			'Content-Type': 'application/json'
+		},
+		body: jsonData
+	})
+	.then(response => {
+		if (response.ok) {
+			console.log('Data updated successfully.');
+		}
+		else {
+			console.error('update process failed:', response.statusText);
+		}
+	})
+	.catch(error => {
+		console.error('Error updating data:', error);
+	});
+}
+
+
+function deletePizzaData(customizationId) {
+	fetch(`/api/v1/customizations/${customizationId}`, {
+		method: 'DELETE'
+	})
+	.then(response => {
+		if (response.ok) {
+			console.log('Data deleted successfully.');
+		}
+		else {
+			console.error('Deletion failed:', response.statusText);
+		}
+	})
+	.catch(error => {
+		console.error('Error deleting data:', error);
 	});
 }

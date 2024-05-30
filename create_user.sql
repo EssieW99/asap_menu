@@ -1,4 +1,15 @@
 -- prepares a postgreSQL
+DO $$
+BEGIN
+	IF NOT EXISTS (
+		SELECT 1
+		FROM pg_extension
+		WHERE extname = 'dblink'
+	} THEN
+	        CREATE EXTENSION dblink;
+	END IF;
+END
+$$;
 
 DO $$
 BEGIN

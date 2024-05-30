@@ -93,7 +93,7 @@ footer {
 
 #saveButton {
 	position: fixed;
-	bottom: 60px;
+	bottom: 80px;
 	right: 20px;
 	padding: 10px 15px;
 	color: white;
@@ -105,12 +105,24 @@ footer {
 
 #sendToServer {
 	position: fixed;
-	bottom: 20px;
+	bottom: 40px;
 	right: 20px;
 	padding: 10px 15px;
 	color: white;
 	border: none;
 	cursor: pointer;
 	background-color: #4CAF50;
+	z-index: 1000;
+}
+
+#deleteButton {
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	padding: 10px 15px;
+	color: white;
+	border: none;
+	cursor: pointer;
+	background-color: #FF0000;
 	z-index: 1000;
 }

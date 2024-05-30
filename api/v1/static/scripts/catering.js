@@ -1,15 +1,26 @@
 document.addEventListener('DOMContentLoaded', () => {
 	const sendToServer = document.getElementById('sendToServer');
+	const deleteButton = document.getElementById('deleteButton');
+	let customizationId;
+
 	sendToServer.addEventListener('click', sendCateringDataToServer);
+	deleteButton.addEventListener('click', () => {
+		if (customizationId) {
+			deleteCateringData(customizationId);
+		}
+	});
 
 	//populate json data when page loads
 	loadCateringData();
-);
+
+});
+
 
 function loadCateringData() {
-	fetch('/endpoint where catering-data is saved')
+	fetch(`/api/v1/customizations/${customizationId}`)
 	.then(response => response.json()) //convert to json
 	.then(data => {
+		customizationId = data.customization_id;
 		populateTemplate(data);
 	})
 	.catch(error => {
@@ -24,6 +35,7 @@ function populateTemplate(data) {
 	// create and append title
 	const title = document.createElement('h1');
 	title.contentEditable = 'true';
+	title.textContent = data.title || 'Catering Menu'; //use default title
 	template.appendChild(title);
 
 	// create and append menu container
@@ -91,7 +103,7 @@ function sendCateringDataToServer () {
 	const jsonData = serializeCateringHTMLtoJSON();
 
 	// link to server
-	fetch('server_endpoint', {
+	fetch(`/api/v1/customizations`, {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json'
@@ -110,3 +122,47 @@ function sendCateringDataToServer () {
 		console.error('Error:', error);
 	});
 }
+
+// function to update existing customization
+function updateCateringData(customizationId) {
+	const jsonData = serializeCateringHTMLtoJSON();
+
+	fetch(`/api/v1/customizations/${customizationId}`, {
+		method: 'PUT',
+		headers: {
+			'Content-Type': 'application/json'
+		},
+		body: JSON.stringify(jsonData)
+	})
+	.then(response => {
+		if (response.ok) {
+			console.log('Data updated successfully.');
+		}
+		else {
+			console.error('update process failed:', response.statusText);
+		}
+	})
+	.catch(error => {
+		console.error('Error updating data:', error);
+	});
+}
+
+
+//function to delete existing customization
+function deleteCateringData(customizationId) {
+	fetch(`/api/v1/customizations/${customizationId}`, {
+		method: 'DELETE'
+	})
+	.then(response => {
+		if (response.ok) {
+			console.log('Data deleted successfully.');
+		}
+		else {
+			console.error('Deletion failed:', response.statusText);
+		}
+	})
+	.catch(error => {
+		console.error('Error deleting data:', error);
+	});
+}
+

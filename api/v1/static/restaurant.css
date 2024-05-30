@@ -18,12 +18,13 @@ body {
 .menu-container {
 	max-width: 800px;
 	width: 100%;
-	background-color: #83C5BE;
+	background: #fff;
 	border: 2px solid #ddd;
 	border-radius: 10px;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 	margin: 20px;
 	padding: 20px;
+	background: url('/static/background/background-texture.jpg') no-repeat center center fixed;
 	background-size: cover;
 	min-height: 100vh;
 }
@@ -43,10 +44,13 @@ header h1 {
 }
 
 .menu {
-	display: block;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
 }
 
 .menu-section {
+	width: 48%;
 	margin-bottom: 20px;
 }
 
@@ -67,35 +71,24 @@ header h1 {
 .menu-section ul li {
 	display: flex;
 	justify-content: space-between;
-	align-items: center;
 	margin-bottom: 10px;
 	font-size: 1.2em;
 	color: #555;
-	position: relative;
-	background-image: linear-gradient(to right, #000 33%, rgba(0,0,0,0) 0%);
-	background-position: bottom;
-	background-size: 10px 1px;
-	background-repeat: repeat-x;
-	padding-bottom: 3px;
-}
-
-.menu-section ul li span {
-	white-space: nowrap;
 }
 
 footer {
 	text-align: center;
 	font-size: 1.1em;
-	color: black;
+	color: #999;
 	border-top: 1px solid #ddd;
 	padding-top: 10px;
-	margin-top: 20px;
+	margin-top: 40px;
 	margin-bottom: 20px;
 }
 
 #saveButton {
 	position: fixed;
-	bottom: 60px;
+	bottom: 80px;
 	right: 20px;
 	padding: 10px 15px;
 	color: white;
@@ -107,7 +100,7 @@ footer {
 
 #sendToServer {
 	position: fixed;
-	bottom: 20px;
+	bottom: 40px;
 	right: 20px;
 	padding: 10px 15px;
 	color: white;
@@ -116,3 +109,16 @@ footer {
 	background-color: #4CAF50;
 	z-index: 1000;
 }
+
+#deleteButton {
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	padding: 10px 15px;
+	color: white;
+	border: none;
+	cursor: pointer;
+	background-color: #FF0000;
+	z-index: 1000;
+}
+

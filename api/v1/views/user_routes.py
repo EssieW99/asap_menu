@@ -70,11 +70,9 @@ def update_user(user_id):
 def delete_user(user_id):
     """ deletes a user"""
 
-    user = storage.get(User, id)
+    user = storage.get(User, user_id)
     if not user:
         return jsonify ({'error': 'User not found'}), 404
     storage.delete_user(user)
     return jsonify ({'message': 'User deleted successfully'})
    
-
-    

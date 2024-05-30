@@ -1,0 +1,25 @@
+<!DOCType HTML>
+<html lang="en">
+	<head>
+	</head>
+	<body>
+		<form id="templateForm" enctype="multipart/form-data">
+			<label for="templateName">Template Name:</label>
+			<input type="text" id="templateName" name="name" required>
+
+			<label for="templateDescription">Template Description:</label>
+			<textarea id="templateDescription" name="description" required></textarea>
+
+			<label for="thumbnail">Thumbnail:</label>
+			<input type="file" id="thumbnail" name="thumbnail_url" accept="image/*" required>
+
+			<label for="templateFile">Template File:</label>
+			<input type="file" id="templateFile" name="template_url" accept=".html,.htm,.txt" required>
+
+			<button type="submit">Create Template</button>
+		</form>
+
+		<script src = template.js"></script>
+
+	</body>
+</html>
