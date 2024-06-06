@@ -1,11 +1,20 @@
 from models.user import User
 from models import storage
 from api.v1.views import app_views
-from flask import jsonify, request
+from flask import jsonify, request, current_app, session
+from flask import Flask
+from datetime import datetime
+from itsdangerous import URLSafeTimedSerializer as Serializer
 
 
-@app_views.route('/users', methods=['POST'])
-def create_user():
+def send_reset_email(user, token):
+        """
+        send a user the email with a token to facilitate resetting their password
+        """
+        pass
+
+@app_views.route('/register', methods=['POST'])
+def add_user():
     """ creates a new user"""
 
     data = request.get_json()
@@ -25,18 +34,43 @@ def create_user():
         return jsonify ({'error': 'Username already exists'}), 409
     
     new_user = storage.add_user(username=username, email=email, password=password)
+    session['user_id'] = new_user.id
 
-    return jsonify(new_user.to_dict), 201
+    return jsonify(new_user.to_dict()), 201
 
 @app_views.route('/users', methods=['GET'])
 def get_users():
     """ fetches all the users"""
 
     users = storage.all(User).values()
-    users_list = []
-    for user in users:
-        users_list.append(user)
+    users_list = [user.to_dict() for user in users]
     return jsonify(users_list)
+
+@app_views.route('/login', methods=['POST'])
+def login_user():
+    """ logs in a returning user"""
+
+    data = request.get_json()
+    if not data:
+        return jsonify({'error': 'Missing data'}), 400
+
+    username = data.get('username')
+    password = data.get('password')
+
+    if not username or not password:
+        return jsonify({'error': 'Missing username or password'}), 400
+
+    user = storage.get_user_by_username(username)
+    if user is None or not user.check_password(password):
+        return jsonify({'error': 'Invalid credentials'}), 401
+
+    session['user_id'] = user.id
+    return jsonify({'message': 'Login successful'}), 200
+
+@app_views.route('/logout', methods=['POST'])
+def logout():
+    session.pop('user_id', None)
+    return jsonify({'message': 'Logout successful'}), 200
 
 @app_views.route('/users/<user_id>', methods=['GET'])
 def get_user(user_id):

@@ -3,7 +3,10 @@
 	<head>
 	</head>
 	<body>
-		<form id="templateForm" enctype="multipart/form-data">
+		<h1>Create Templates</h1>
+		<div id="templateList"></div>
+
+		<form method="POST" id="templateForm" name="templateForm" enctype="multipart/form-data">
 			<label for="templateName">Template Name:</label>
 			<input type="text" id="templateName" name="name" required>
 
@@ -18,6 +21,7 @@
 
 			<button type="submit">Create Template</button>
 		</form>
+		<div id="templateMessage"></div>
 
 		<script src="/static/scripts/template.js"></script>
 

@@ -24,7 +24,7 @@ body {
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 	margin: 20px;
 	padding: 20px;
-	background: url('/static/background/background-texture.jpg') no-repeat center center fixed;
+	background: url('/ubuntu/home/mwangii/asap_menu/api/v1/static/background/background-texture.jpg') no-repeat center center fixed;
 	background-size: cover;
 	min-height: 100vh;
 }
@@ -88,7 +88,7 @@ footer {
 
 #saveButton {
 	position: fixed;
-	bottom: 80px;
+	bottom: 90px;
 	right: 20px;
 	padding: 10px 15px;
 	color: white;
@@ -100,7 +100,7 @@ footer {
 
 #sendToServer {
 	position: fixed;
-	bottom: 40px;
+	bottom: 50px;
 	right: 20px;
 	padding: 10px 15px;
 	color: white;
@@ -112,7 +112,7 @@ footer {
 
 #deleteButton {
 	position: fixed;
-	bottom: 20px;
+	bottom: 10px;
 	right: 20px;
 	padding: 10px 15px;
 	color: white;

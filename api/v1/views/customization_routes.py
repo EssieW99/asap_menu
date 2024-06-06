@@ -1,7 +1,7 @@
 from models.customization import Customization
 from models import storage
 from api.v1.views import app_views
-from flask import jsonify, request
+from flask import jsonify, request, session
 
 
 @app_views.route('/customizations', methods=['POST'])
@@ -9,11 +9,14 @@ def create_customization():
     """ adds a customized template to the database"""
     data = request.json
     new_customization = storage.add_customization(
-        user_id=data['user_id'],
+        user_id = session.get('user_id'),
         template_id=data['template_id'],
         customization_data=data['customization_data']
     )
-    return jsonify(new_customization.to_dict()), 201
+    response_data = new_customization.to_dict()
+    response_data["id"] = new_customization.id  
+
+    return jsonify(response_data), 201
 
 @app_views.route('/customizations/<customization_id>', methods=['GET'])
 def get_customization(customization_id):

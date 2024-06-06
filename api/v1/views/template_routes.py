@@ -52,7 +52,10 @@ def create_template():
             thumbnail_url=f'static/images/{thumbnail_filename}',
             template_url=f'templates/menu_templates/{template_filename}'
         )
-        return jsonify(new_template.to_dict()), 201
+        response_data = new_template.to_dict()
+        response_data["id"] = new_template.id
+
+        return jsonify(response_data), 201
     else:
         return jsonify({'error': 'File type not allowed'}), 400
 

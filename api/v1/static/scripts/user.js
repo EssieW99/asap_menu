@@ -1,25 +1,47 @@
-const urlParams = new URLSearchParams(window.location.search);
-const userId = urlParams.get('id');
+const userForm = document.getElementById('userForm');
+
+userForm.addEventListener('submit', function(event) {
+	event.preventDefault();
+
+	const userName = document.getElementById('userName').value;
+	const email = document.getElementById('email').value;
+	const password = document.getElementById('password').value;
+
+	const userData = {
+		username: userName,
+		email: email,
+		password: password
+	};
+	if (userId) {
+		updateUser(userId, userData);
+	}
+	else {
+		createUser(userData);
+	}
+});
 
 // Function to create a new user
-function createUser(username, email, password) {
+function createUser(userData) {
 	fetch(`/api/v1/users`, {
 		method: 'POST',
                 headers: {
 			'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ username, email, password })
+                body: JSON.stringify(userData)
         })
         .then(response => {
 		if (response.ok) {
 			return response.json();
+		}
+		else if (response.status === 409) {
+			console.error('Username already exists');
 		}
 		else {
 			console.error('Failed to create user:');
 		}
         })
         .then(data => {
-		userId = data.user_id;
+		const userId = data.id;
 		console.log('User created successfully:', data);
         })
         .catch(error => {
@@ -38,8 +60,14 @@ function getAllUsers() {
 			console.error('Failed to fetch users:');
 		}
 	})
-	.then(users => {
-		console.log('Users:', users);
+	.then(data => {
+		if (data.error) {
+			console.error('error fetching users:', data.error);
+		}
+		else {
+			const users = data.users;
+			console.log('Users:', users);
+		}
 	})
 	.catch(error => {
 		console.error('Error fetching users:', error);
@@ -49,16 +77,17 @@ function getAllUsers() {
 // Function to fetch a user by ID
 function getUserById(userId) {
 	fetch(`/api/v1/users/${userId}`)
-	.then(response => {
-		if (response.ok) {
-			return response.json();
+	.then(response => response.json())
+	.then (data => {
+		if (data.error) {
+			console.error('Failed to fetch user:', data.error);
 		}
 		else {
-			console.error('Failed to fetch user:');
+			const user = data;
+			console.log('User:', user);
+			document.getElementById('username').textContent = user.username;
+			document.getElementById('email').textContent = user.email;
 		}
-	})
-	.then(user => {
-		console.log('User:', user);
 	})
 	.catch(error => {
 		console.error('Error fetching user:', error);
@@ -74,16 +103,16 @@ function updateUser(userId, userData) {
 		},
 		body: JSON.stringify(userData)
 	})
-	.then(response => {
-		if (response.ok) {
-			return response.json();
+	.then(response => response.json())
+	.then(data => {
+		if (data.error) {
+			console.error('Error updating User:', data.error);
 		}
 		else {
-			console.error('Failed to update user:');
+			console.log('User updated successfully:', data)
+			document.getElementById('username').textContent = data.username;
+			document.getElementById('email').textContent = data.email;
 		}
-	})
-	.then(data => {
-		console.log('User successfully updated:', data);
 	})
 	.catch(error => {
 		console.error('Error updating user:', error);
@@ -92,18 +121,23 @@ function updateUser(userId, userData) {
 
 // Function to delete a user
 function deleteUser(userId) {
-	fetch(`/api/v1/users/${userId}`, {
-		method: 'DELETE'
-	})
-	.then(response => {
-		if (response.ok) {
-			console.log('User successfully deleted');
-		}
-		else {
-			console.error('Failed to delete user:');
-		}
-	})
-	.catch(error => {
-		console.error('Error deleting user:', error);
-	});
+	if (confirm('Are you sure you want to delete this user?')) {
+		fetch(`/api/v1/users/${userId}`, {
+			method: 'DELETE'
+		})
+		.then(response => {
+			if (response.ok) {
+				console.log('User successfully deleted');
+			}
+			else {
+				console.error('Failed to delete user:');
+			}
+		})
+		.catch(error => {
+			console.error('Error deleting user:', error);
+		});
+	}
+	else {
+		console.log('User deletion cancelled');
+	}
 }

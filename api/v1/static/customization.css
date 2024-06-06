@@ -1,0 +1,23 @@
+#sendToServer {
+	position: fixed;
+	bottom: 50px;
+	right: 20px;
+	padding: 10px 15px;
+	color: white;
+	border: none;
+	cursor: pointer;
+	background-color: #4CAF50;
+	z-index: 1000;
+}
+
+#deleteButton {
+	position: fixed;
+	bottom: 10px;
+	right: 20px;
+	padding: 10px 15px;
+	color: white;
+	border: none;
+	cursor: pointer;
+	background-color: #FF0000;
+	z-index: 1000;
+}

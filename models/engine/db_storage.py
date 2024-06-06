@@ -55,9 +55,9 @@ class DBStorage:
         self.__session.commit()
         return template
 
-    def add_customization(self, template_id, customization_data):
+    def add_customization(self, user_id, template_id, customization_data):
         """ adds a new object to the customizations table"""
-        customization = Customization(template_id=template_id, customization_data=customization_data)
+        customization = Customization(user_id=user_id, template_id=template_id, customization_data=customization_data)
         self.__session.add(customization)
         self.__session.commit()
         return customization

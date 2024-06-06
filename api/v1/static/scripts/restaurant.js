@@ -1,22 +1,22 @@
 document.addEventListener("DOMContentLoaded", () => {
 	const sendToServer = document.getElementById('sendToServer');
 	const deleteButton = document.getElementById('deleteButton');
-	const urlParams = new URLSearchParams(window.location.search);
-	const customizationId = urlParams.get('id');
+	const customizationId = null;
+
 
 	sendToServer.addEventListener('click', sendRestaurantDataToServer);
-	deleteButton.addEventListener('click', () => {
-		if (customizationId) {
-			deleteRestaurantData(customizationId);
-		}
-	});
-
-	if (customizationId) {
-		loadRestaurantData(customizationId);
-	}
-	else {
-		console.error('Customization id not found in url');
-	}
+	//leteButton.addEventListener('click', () => {
+	//f (customizationId) {
+	//deleteRestaurantData(customizationId);
+///
+//);
+//
+//f (customizationId) {
+//loadRestaurantData(customizationId);
+//
+//lse {
+//console.error('Customization id not found in url');
+//
 });
 
 function loadRestaurantData(customizationId) {
@@ -53,12 +53,19 @@ function populateRestaurantTemplate(data) {
 function serializeRestaurantHTMLtoJSON() {
 	// Serialize restaurant HTML to JSON format
 	const restaurantHTML = document.getElementById('template').outerHTML;
-	return JSON.stringify({ restaurant_html: restaurantHTML });
+	const user_id = "9d6a2cf4-11e6-4bfe-833c-8042b54d6d36";
+	const template_id = "template123";
+
+	return JSON.stringify({
+		customization_data: restaurantHTML,
+		user_id: user_id,
+		template_id: template_id
+	});
 }
-	
+
 function sendRestaurantDataToServer() {
         const jsonData = serializeRestaurantHTMLtoJSON();
-        fetch(`/api/v1/customizations`, {
+        fetch(`http://127.0.0.1:5000/api/v1/customizations`, {
 		method: 'POST',
 	        headers: {
 			'Content-Type': 'application/json'

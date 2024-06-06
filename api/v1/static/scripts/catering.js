@@ -113,7 +113,7 @@ function sendCateringDataToServer () {
 		headers: {
 			'Content-Type': 'application/json'
 		},
-		body: jsonData
+		body: JSON.stringify(jsonData)
 	})
 	.then(response => {
 		if (response.ok) {
@@ -124,7 +124,7 @@ function sendCateringDataToServer () {
 		}
 	})
 	.catch(error => {
-		console.error('Error:', error);
+		console.error('Error sending data:', error);
 	});
 }
 

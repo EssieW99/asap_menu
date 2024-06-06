@@ -13,7 +13,7 @@ class Template(BaseModel):
     """
     __tablename__ = 'templates'
 
-    id = Column(String(60), primary_key=True, autoincrement=True)
+    id = Column(String(60), primary_key=True)
     name = Column(String(128), nullable=False)
     description = Column(Text)
     thumbnail_url = Column(String(128), nullable=False)

@@ -1,12 +1,26 @@
-document.getElementById('templateform').addEventListener('submit', function(event) {
-	const formElement = event.target;
-	const formData = new FormData(formElement);
+document.addEventListener('DOMContentLoaded', function() {
+	const templateForm = document.getElementById('templateForm');
+	templateForm.addEventListener('submit', function(event) {
+		event.preventDefault();
 
-	createTemplate(formData);
+		const formElement = event.target;
+		const formData = new FormData(formElement);
+
+		//if (templateId) {
+		//	updateTemplate(templateId, formData);
+		//}
+		//else {
+		createTemplate(formData)
+		//	.then(data => {
+		//		console.log('New template created:', data);
+		//	})
+		//	.catch(error => {
+		//		console.error('Error creating template:', error);
+		//	});
+		//}
+	});
 });
 
-const urlParams = new URLSearchParams(window.location.search);
-const templateId = urlParams.get('id');
 
 //function to create a new template
 function createTemplate(formData) {
@@ -22,8 +36,14 @@ function createTemplate(formData) {
 	        return response.json();
 	})
 	.then(data => {
-		templateId = data.template_id;
 		console.log('New template created:', data);
+		if (data.id) {
+			const templateId = data.id;
+			window.location.href = `/api/v1/templates/${templateId}`;
+		}
+		else {
+			console.error('Missing template Id')
+		}
 	})
 	.catch(error => {
 		console.error('Error creating template:', error);
@@ -32,7 +52,7 @@ function createTemplate(formData) {
 
 // Function to get a template by ID
 function getTemplate(templateId) {
-	fetch(`/api/v1/templates/${templateId}`)
+	fetch(`/api/v1/templates/${templateId}`, { method: 'GET' })
 	.then(response => {
 		if (!response.ok) {
 			console.error('Failed to fetch template:');
@@ -41,15 +61,34 @@ function getTemplate(templateId) {
 	})
 	.then(data => {
 		console.log('Template:', data);
+
+		//update UI elements
+		const templateName = document.getElementById('templateName')
+		const templateDescription = document.getElementById('templateDescription');
+		const thumbnail = document.getElementById('thumbnail');
+		const templateFile = document.getElementById('templateFile');
+
+		if (templateName) {
+			templateName.textContent = data.name;
+		}
+		if (templateDescription) {
+			templateDescription.textContent = data.description || '';
+		}
+		if (thumbnail) {
+			thumbnail.src = data.thumbnail_url;
+		}
+		if (templateFile) {
+			templateFile.href = data.template_url;
+		}
 	})
 	.catch(error => {
 		console.error('Error fetching template:', error);
 	});
 }
 
-// Function to get all templates
+//Function to get all templates
 function getAllTemplates() {
-	fetch(`/api/v1/templates`)
+	fetch(`/api/v1/templates`, { method: 'GET' })
 	.then(response => {
 		if (!response.ok) {
 			console.error('Failed to fetch templates:');
@@ -58,22 +97,27 @@ function getAllTemplates() {
 	})
 	.then(data => {
 		console.log('All templates:', data);
+		const templateList = document.getElementById('templateList');
+		if (templateList) {
+			templateList.innerHTML() = '';
+			for (const template of data) {
+				const listItem = document.createElement('li');
+				listItem.textContent = `${template.id} ${template.name} - ${template.description || 'No description'}`;
+				templateList.appendChild(listItem);
+			}
+		}
 	})
 	.catch(error => {
 		console.error('Error fetching templates:', error);
 	});
 }
 
-const newData = document.getElementById('template').textContent;
 
 // Function to update a template
-function updateTemplate(templateId, newData) {
+function updateTemplate(templateId, formData) {
 	fetch(`/api/v1/templates/${templateId}`, {
 		method: 'PUT',
-	        headers: {
-			'Content-Type': 'application/json'
-		},
-		body: newData
+	        body: formData
 	})
 	.then(response => {
 		if (!response.ok) {

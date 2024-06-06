@@ -8,8 +8,7 @@ loginForm.addEventListener('submit', (event) => {
 	const password = document.getElementById('password').value;
 	const email = document.getElementById('email').value;
 	
-	// Replace with your actual backend API endpoint URL
-	const url = 'http://your_backend_url/api/v1/login';
+	const url = '/api/v1/login';
 
 	// Create a request object with credentials 
 	const data = {
@@ -19,16 +18,16 @@ loginForm.addEventListener('submit', (event) => {
 	};
 		
 	fetch(url, {
-		method: 'POST', // Set request method to POST
+		method: 'POST',
 	        headers: {
-			'Content-Type': 'application/json' // Set content type as JSON
+			'Content-Type': 'application/json'
 	        },
 		body: JSON.stringify(data) // Convert data to JSON string for body
 	})
 	.then(response => response.json())
 	.then(data => {
 		if (data.success) {
-			// Login successful, handle token and redirect (replace with your logic)
+			// Login successful, handle token and redirect
 	        	console.log('Login successful!');
 	        	localStorage.setItem('token', data.token);
 	        	window.location.href = 'index.html';

@@ -18,8 +18,7 @@ class Customization(BaseModel):
     __tablename__ = "customizations"
 
     """ foreign keys"""
-    id = Column(Integer, primary_key=True, autoincrement=True)
-    user_id = Column(String(60), ForeignKey("users.id"), nullable=False, autoincrement=True)
+    user_id = Column(String(60), ForeignKey("users.id"), nullable=False)
     customization_data = Column(JSONB, nullable=False)
     template_id = Column(String(60), ForeignKey("templates.id"))
 
