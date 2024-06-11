@@ -1,0 +1,129 @@
+body {
+	font-family: sans-serif;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: transparent;
+	min-height: 100vh;
+}
+
+/*#template {
+	width: 210mm;
+	max-width: 100%;
+	box-sizing: border-box;
+}*/
+
+#template-container {
+	max-width: 700px;
+	width: 100%;
+	background: url('/static/images/Bakar.png') no-repeat center center;
+	/*border: 2px solid #ddd;*/
+	border: none;
+	/*border-radius: 10px;*/
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	/*margin: 20px;*/
+	padding: 20px;
+	background-size: cover;
+	min-height: 100vh;
+}
+
+header {
+	text-align: center;
+	margin-bottom: 40px;
+	margin-top: 20px;
+}
+
+header h1 {
+	font-size: 3em;
+	color: wheat;
+	margin: 0;
+	border-bottom: 2px solid wheat;
+	padding-bottom: 10px;
+}
+
+.menu {
+	display: block;
+}
+
+.menu-section {
+	margin-bottom: 20px;
+}
+
+.menu-section h2 {
+	font-size: 2em;
+	color: wheat;
+	border-bottom: 2px solid wheat;
+	padding-bottom: 5px;
+	margin-bottom: 10px;
+}
+
+.menu-section ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.menu-section ul li {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 10px;
+	font-size: 1.2em;
+    font-weight: 60px;
+	color: rgb(238, 184, 37);
+	position: relative;
+	background: none;
+	background-size: cover;
+}
+
+.menu-section ul li span {
+	white-space: nowrap;
+}
+
+footer {
+	text-align: center;
+	font-size: 1.1em;
+	color: rgb(238, 184, 37);
+	border-top: 1px solid #ddd;
+	padding-top: 10px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+#saveButton {
+	position: fixed;
+	bottom: 80px;
+	right: 20px;
+	padding: 10px 15px;
+	color: white;
+	border: none;
+	cursor: pointer;
+	background-color: #4CAF50;
+	z-index: 1000;
+}
+
+#sendToServer {
+	position: fixed;
+	bottom: 40px;
+	right: 20px;
+	padding: 10px 15px;
+	color: white;
+	border: none;
+	cursor: pointer;
+	background-color: #4CAF50;
+	z-index: 1000;
+}
+
+#deleteButton {
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	padding: 10px 15px;
+	color: white;
+	border: none;
+	cursor: pointer;
+	background-color: #FF0000;
+	z-index: 1000;
+}
