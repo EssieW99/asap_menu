@@ -1,0 +1,121 @@
+@import url(/static/css/clash_display.css);
+
+/*VARIABLES*/
+:root {
+    --c-dark: #212529;
+    --c-brand: #4e57d4;
+    --c-brand-light: #6970dd;
+    --c-brand-rgb: 78, 87, 212;
+    --c-body: #727272;
+    --font-base: "ClashDisplay", sans-serif;
+    --box-shadow: 0px 15px 25px rgba(0,0,0,0.08);
+    --transition: all 0.5s ease;
+
+}
+
+body {
+    font-family: var(--font-base);
+    line-height: 1.7;
+    color: var(--c-body);
+}
+
+h1,h2,h3,h4,h5,h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+    font-weight: 600;
+    color: rgb(189, 189, 33);
+}
+
+a {
+    text-decoration: none;
+    color: var(--c-brand);
+    transition: var(--transition);
+}
+
+a:hover {
+    color: var(--c-brand-light);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.section-padding {
+    padding-top: 140px;
+    /*padding-bottom: 140px;*/
+}
+
+.navbar {
+    box-shadow: var(--box-shadow);
+}
+.navbar-nav .nav-link {
+    font-weight: 500;
+    color: var(--c-dark);
+}
+
+.navbar-nav .nav-link.active {
+    color: var(--c-brand);
+}
+
+#home {
+    background: url(/static/images/cool-background\ \(3\).png);
+    background-position: center;
+    background-size: cover;
+}
+
+.section-title {
+    margin-bottom: 60px;
+}
+
+.section-title .line {
+    width: 60px;
+    height: 4px;
+    background-color: rgb(189, 189, 33);
+    margin: 16px auto 24px auto;
+}
+
+.section-title p {
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.thumbnail img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    object-position: center;
+
+}
+.thumbnail {
+    overflow: hidden;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-right: 190px;
+}
+
+.col-lg-5 ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.col-lg-5 ul li {
+    margin-bottom: 40px; /* Add space between list items */
+}
+
+.col-lg-5 h1 {
+    margin-bottom: 20px;
+}
+
+.col-lg-5 p {
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+.row {
+    align-items: center; /* Center items vertically */
+}
+

@@ -1,0 +1,110 @@
+html body {
+	font-family: 'Arial', sans-serif;
+	margin: 0;
+	padding: 0;
+	color: black;
+	background-color: #f8f8f8;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+}
+
+#template-container {
+	max-width: 700px;
+	width: 100%;
+	background: url('/static/images/Asam.png');
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	border-radius: 10px;
+	background-size: cover;
+	padding: 20px;
+}
+
+header {
+	text-align: center;
+	margin-bottom:20px;
+	margin-top: 20px;
+}
+
+header h1 {
+	text-align: center;
+	color: rgb(24, 24, 24);
+	font-size: 2.5em;
+	margin: 0;
+	border-bottom: 2px solid rgb(24, 24, 24) ;
+	padding-bottom: 10px;
+}
+
+.menu-items {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.menu-item {
+	margin-bottom: 20px;
+	padding: 20px;
+	border: 1px solid rgb(24, 24, 24);
+	border-radius: 5px;
+	background-color: none;
+	border: none;
+	transition: background-color 0.3s ease;
+}
+
+.menu-item:hover {
+	background-color: rgba(255, 255, 255, 0.3);
+}
+
+.menu-item-content {
+	position: relative;
+}
+
+.menu-item-title {
+	font-size: 1.5em;
+	color: rgb(24, 24, 24);
+	margin: 0 0 10px 0;
+	text-align: center;
+}
+
+.menu-item-description {
+	margin: 0 0 10px 0;
+	color: rgb(24, 24, 24);
+	text-align: center;
+}
+
+.menu-item-price {
+	text-align: center;
+	color: rgb(24, 24, 24);
+	font-weight: bold;
+	font-size: 1.2em;
+}
+
+footer {
+	text-align: center;
+	color: rgb(24, 24, 24);
+}
+
+.fixed-button{
+	position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px; 
+    font-size: 16px; 
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, transform 0.3s; 
+}
+#saveButton {
+	background: linear-gradient(135deg, #78d878, #4ae23c);
+    bottom: 80px;
+}
+
+
+#deleteButton {
+	background: linear-gradient(135deg, #ee8f50, #e4370c);
+    bottom: 20px;
+}

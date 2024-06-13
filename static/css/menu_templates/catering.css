@@ -1,0 +1,132 @@
+html body {
+	font-family: sans-serif;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: transparent !important;
+	min-height: 100vh;
+}
+
+/*#template {
+	width: 210mm;
+	max-width: 100%;
+	box-sizing: border-box;
+}*/
+
+#template-container {
+	max-width: 700px;
+	width: 100%;
+	background: url('/static/images/Bakar.png') no-repeat center center;
+	/*border: 2px solid #ddd;*/
+	border: none;
+	/*border-radius: 10px;*/
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	/*margin: 20px;*/
+	padding: 20px;
+	background-size: cover;
+	min-height: 100vh;
+	background-color: black !important;
+}
+
+#template-container * {
+    background-color: transparent !important; /* Ensures all child elements are transparent */
+}
+
+header {
+	text-align: center;
+	margin-bottom: 40px;
+	margin-top: 20px;
+}
+
+header h1 {
+	font-size: 3em;
+	color: wheat;
+	margin: 0;
+	border-bottom: 2px solid wheat;
+	padding-bottom: 10px;
+	justify-content: center;
+	align-items: center;
+}
+
+.menu {
+	display: block;
+}
+
+.menu-section {
+	margin-bottom: 20px;
+}
+
+.menu-section h2 {
+	font-size: 2em;
+	color: wheat;
+	border-bottom: 2px solid wheat;
+	padding-bottom: 5px;
+	margin-bottom: 10px;
+	justify-content: center;
+	align-items: center;
+	
+}
+
+.center-text {
+    text-align: center;
+}
+
+.menu-section ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.menu-section ul li {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 10px;
+	font-size: 1.2em;
+    font-weight: 60px;
+	color: rgb(238, 184, 37);
+	position: relative;
+	background: none;
+	background-size: cover;
+}
+
+.menu-section ul li span {
+	white-space: nowrap;
+}
+
+footer {
+	text-align: center;
+	font-size: 1.1em;
+	color: rgb(238, 184, 37);
+	border-top: 1px solid #ddd;
+	padding-top: 10px;
+	margin-top: 20px;
+	/*margin-bottom: 20px;*/
+}
+
+.fixed-button{
+	position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px; 
+    font-size: 16px; 
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, transform 0.3s; 
+}
+#saveButton {
+	background: linear-gradient(135deg, #78d878, #4ae23c);
+    bottom: 80px;
+}
+
+
+#deleteButton {
+	background: linear-gradient(135deg, #ee8f50, #e4370c);
+    bottom: 20px;
+}
