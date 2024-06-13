@@ -8,13 +8,14 @@ from functools import wraps
 def login_required(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
+        """ensures a user is logged in or signed in before saving or downloading a template"""
         if 'user_id' not in session:
-            return redirect(url_for('user_bp.login'))
+            return redirect(url_for('app_views.login_user'))
         return f(*args, **kwargs)
     return decorated_function
 
 @app_views.route('/customizations', methods=['POST'])
-@login_required
+
 def create_customization():
     """ adds a customized template to the database"""
     if 'user_id' not in session:
@@ -39,7 +40,7 @@ def get_customization(customization_id):
 @app_views.route('/customizations', methods=['GET'])
 def get_all_customizations():
     """ fetches all the customized templates"""
-    customizations = storage.get_all_customizations()
+    customizations = storage.all(Customization)
     return jsonify([customization.to_dict() for customization in customizations]), 200
 
 @app_views.route('/customizations/<customization_id>', methods=['PUT'])

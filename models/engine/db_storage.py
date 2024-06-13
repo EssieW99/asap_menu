@@ -12,6 +12,7 @@ import sqlalchemy
 from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
 
+
 classes = {"Template": Template, "Customization": Customization, "User": User}
 
 
@@ -156,6 +157,11 @@ class DBStorage:
         """ gets a user based on their username"""
 
         return self.__session.query(User).filter_by(username=username).first()
+
+    def get_user_by_email(self, email):
+        """ gets a user based on their email"""
+
+        return self.__session.query(User).filter_by(email=email).first()   
 
     def all(self, cls=None):
         """ retrieves all objects or of a particular class"""

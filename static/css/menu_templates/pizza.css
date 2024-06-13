@@ -1,0 +1,114 @@
+html body {
+	font-family: Helvetica, Times New Roman;
+	margin: 0;
+	padding: 0;
+	background-color: transparent;
+	display: flex;
+	justify-content: center;
+    align-items: center;
+	min-height: 100vh;
+}
+
+#template-container {
+	max-width: 700px;
+	width: 100%;
+	min-height: 100vh;
+	background: url('/static/images/pexels-arthurbrognoli-3343626.jpg') no-repeat center center;
+	background-size: cover;
+	padding: 20px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.menu {
+	
+	display: block;	
+	
+}
+
+.menu h1 {
+	color: #FFFFFF;
+	text-align: center;
+	font-size: 2em;
+}
+
+.menu ul {
+	padding: 10px;
+}
+
+.menu-item {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 10px;
+	padding: 10px;
+	background-color: #f9f9f9;
+	border-radius: 5px;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.menu-item:hover {
+	background-color: #e9e9e9;
+}
+
+.menu h2 {
+	font-size: 1.5em;
+	text-align: center;
+	color: #FFFFFF;
+}
+
+.title-color {
+	color:#FF0000;
+}
+.drink-item {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 10px;
+	padding: 10px;
+	background-color: #f9f9f9;
+	border-radius: 5px;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.item-name {
+	font-weight: bold;
+}
+
+.item-price {
+	font-size: 1.3em;
+	color: #666;
+}
+
+footer {
+	text-align: center;
+	font-size: 1.1em;
+	color: #FFFFFF;
+	border-top: 1px solid #ddd;
+	padding-top: 10px;
+	margin-top: 20px;
+}
+
+.fixed-button{
+	position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px; 
+    font-size: 16px; 
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, transform 0.3s; 
+}
+#saveButton {
+	background: linear-gradient(135deg, #78d878, #4ae23c);
+    bottom: 80px;
+}
+
+
+#deleteButton {
+	background: linear-gradient(135deg, #ee8f50, #e4370c);
+    bottom: 20px;
+}

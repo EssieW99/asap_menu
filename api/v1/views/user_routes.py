@@ -65,8 +65,7 @@ def login_user():
     if user is None or not user.check_password(password):
         return jsonify({'error': 'Invalid credentials'}), 401
 
-    session['user_id'] = user.id
-    return jsonify({'message': 'Login successful'}), 200
+    return jsonify({'message': 'Login successful', 'user_id': user.id}), 200
 
 @app_views.route('/logout', methods=['POST'])
 def logout():
@@ -110,7 +109,14 @@ def delete_user(user_id):
         return jsonify ({'error': 'User not found'}), 404
     storage.delete_user(user)
     return jsonify ({'message': 'User deleted successfully'})
-   
+
+@app_views.route('/api/v1/user_id', methods=['GET'])
+def get_user_id():
+    user_id = session.get('user_id')
+    if user_id:
+        return jsonify({'user_id': user_id}), 200
+    else:
+        return jsonify({'error': 'User not authenticated'}), 401
 
 
 @app_views.route('/password_reset_request', methods=['POST'], strict_slashes=False)

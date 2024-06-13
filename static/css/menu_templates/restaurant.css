@@ -1,37 +1,27 @@
 html body {
-	font-family: sans-serif;
+	font-family: 'Arial', sans-serif;
+    font-weight: 120px;
 	margin: 0;
 	padding: 0;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	background-color: transparent !important;
+	background-color: #fff;
 	min-height: 100vh;
 }
-
-/*#template {
-	width: 210mm;
-	max-width: 100%;
-	box-sizing: border-box;
-}*/
 
 #template-container {
 	max-width: 700px;
 	width: 100%;
-	background: url('/static/images/Bakar.png') no-repeat center center;
-	/*border: 2px solid #ddd;*/
-	border: none;
-	/*border-radius: 10px;*/
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-	/*margin: 20px;*/
-	padding: 20px;
-	background-size: cover;
 	min-height: 100vh;
-	background-color: black !important;
+	background: url('/static/images/Untitled\ design.png') no-repeat center center;
+	background-size: cover;
+	padding: 20px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-#template-container * {
-    background-color: transparent !important; /* Ensures all child elements are transparent */
+.menu-container {
+	display: block;	
 }
 
 header {
@@ -42,35 +32,29 @@ header {
 
 header h1 {
 	font-size: 3em;
-	color: wheat;
+	color: #8B4513;
 	margin: 0;
-	border-bottom: 2px solid wheat;
+	border-bottom: 2px solid #8B4513;
 	padding-bottom: 10px;
-	justify-content: center;
-	align-items: center;
 }
 
 .menu {
-	display: block;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
 }
 
 .menu-section {
+	width: 48%;
 	margin-bottom: 20px;
 }
 
 .menu-section h2 {
 	font-size: 2em;
-	color: wheat;
-	border-bottom: 2px solid wheat;
+	color: #8B4513;
+	border-bottom: 2px solid #8B4513;
 	padding-bottom: 5px;
 	margin-bottom: 10px;
-	justify-content: center;
-	align-items: center;
-	
-}
-
-.center-text {
-    text-align: center;
 }
 
 .menu-section ul {
@@ -81,29 +65,21 @@ header h1 {
 
 .menu-section ul li {
 	display: flex;
-	justify-content: center;
-	align-items: center;
+	justify-content: space-between;
 	margin-bottom: 10px;
 	font-size: 1.2em;
-    font-weight: 60px;
-	color: rgb(238, 184, 37);
-	position: relative;
-	background: none;
-	background-size: cover;
-}
-
-.menu-section ul li span {
-	white-space: nowrap;
+    font-weight: 70px;
+	color: black;
 }
 
 footer {
 	text-align: center;
 	font-size: 1.1em;
-	color: rgb(238, 184, 37);
-	border-top: 1px solid #ddd;
+	color: black;
+	border-top: 1px solid #8B4513;
 	padding-top: 10px;
-	margin-top: 20px;
-	/*margin-bottom: 20px;*/
+	margin-top: 40px;
+	margin-bottom: 20px;
 }
 
 .fixed-button{

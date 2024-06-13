@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASAP MENU</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <!--NAVIGATION BAR-->
+    <nav class="navbar navbar-expand-lg navbar-white bg-light sticky-top">
+        <div class="container">
+          <a class="navbar-brand" href="#">
+            <img src="{{ url_for('static', filename='images/ASAP_MENU2_50.png') }}" alt="ASAP MENU LOGO">
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a href="{{ url_for('index') }}" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#templates" class="nav-link">Templates</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ url_for('login_and_signin') }}" class="nav-link">Login</a>
+                </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <!--HOME-->
+      <section id="home"  class="min-vh-100 d-flex align-items-center text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="text-uppercase text-white fw-semibold display-1">Welcome to ASAP MENU</h1>
+                    <h5 class="text-white mb-4 mt-3">WE BRING THE MENU, YOU BRING THE FOOD</h5>
+                    <div>
+                        <a href="#templates" class="btn btn-light ms-2">View Templates</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </section>
+
+      <!--ABOUT-->
+      <section id="about" class="section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-title text-center">
+                        <h1 class="fw-semibold">About Us</h1>
+                        <div class="line"></div>
+                        <p> We strive in giving you a selcetion of menus to chose from, where you can customize to fit your needs and taste.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <img src="{{ url_for('static', filename='images/pexels-karolina-grabowska-4033639_50 (1).jpg') }}" alt="">
+                </div>
+                <div class="col-lg-5">
+                    <h1> About ASAP MENU</h1>
+                    <p> ~ We've come together to make it possible for any business to have access to modern and colourful menus at ease. ~</p>
+                <ul>
+                    <li> We provide a variety of menu templates to choose from.</li>
+                    <li> You get to customize a menu template of your choice to your taste.</li>
+                    <li> After you're satisfied, you get to download the templated into a printable PDF.</li>
+                </ul>
+                </div>
+            </div>
+        </div>
+      </section>
+      <!--TEMPLATES-->
+      <section id="templates" class="section-padding">
+        <div class="container">
+            <div class="row text-center">
+                <div class="section-title text-center">
+                    <h1 class="fw-semibold">Templates</h1>
+                        <div class="line"></div>
+                </div>
+                <div class="col-md-4 thumbnail">
+                    <a href="{{ url_for('static', filename='templates/restaurant.html') }}" target="_blank">
+                        <img src="{{ url_for('static', filename='images/restaurant_thumbnail.png') }}" alt="Thumbnail 1">
+                    </a>
+                    
+                    <h5 class="mt-4">Restaurant Menu</h5>
+                    <p style="font-weight: bold;">This template can be suitable for a normal restaurant.</p>
+                </div>
+                <div class="col-md-4 thumbnail">
+                    <a href="{{ url_for('static', filename='templates/pizza.html') }}" target="_blank">
+                        <img src="{{ url_for('static', filename='images/pizza_thumbnail.png') }}" alt="Thumbnail 2">
+                    </a>
+                    <h5 class="mt-4">Pizza Menu</h5>
+                    <p style="font-weight: bold;">This template can be suitable for a pizza making establishment</p>
+                </div>
+                <div class="col-md-4 thumbnail">
+                    <a href="{{ url_for('static', filename='templates/wedding.html') }}" target="_blank">
+                        <img src="{{ url_for('static', filename='images/wedding_thumbnail.png') }}" alt="Thumbnail 3">
+                    </a>
+                    <h5 class="mt-4">Wedding Template</h5>
+                    <p style="font-weight: bold;">This template can be for a wedding celebration event</p>
+                </div>
+                <div class="col-md-4 thumbnail " id="4631e871-7de4-4376-bd8d-622077da512a">
+                    <a href="{{ url_for('static', filename='templates/catering.html') }}" target="_blank">
+                        <img src="{{ url_for('static', filename='images/catering_thumbnail.png') }}" alt="Thumbnail 4">
+                    </a>
+                    <h5 class="mt-4">Catering Template</h5>
+                    <p style="font-weight: bold;">This template can be suitable for a catering business</p>
+                </div>
+        </div>
+      </section>
+    
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -4,7 +4,7 @@ from models.base_model import  BaseModel, Base
 from models.template import Template
 from models import storage
 from api.v1.views import app_views
-from flask import current_app, jsonify, request
+from flask import current_app, jsonify, request, render_template
 from werkzeug.utils import secure_filename
 import os
 
@@ -62,8 +62,9 @@ def get_template(template_id):
     template = storage.get(Template, template_id)
     if not template:
         return jsonify({'message': 'Template not found'}), 404
+        
+    return render_template(template)
 
-    return jsonify(template.to_dict()), 200
 
 @app_views.route('/templates', methods=['GET'])
 def get_templates():
