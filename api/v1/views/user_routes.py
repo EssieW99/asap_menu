@@ -37,7 +37,7 @@ def add_user():
     
     new_user = storage.add_user(username=username, email=email, password=password)
     session['user_id'] = new_user.id
-    return jsonify(new_user.to_dict()), 201
+    return jsonify({'message': 'Sign In successful!'}), 200
 
 @app_views.route('/users', methods=['GET'])
 def get_users():
@@ -65,7 +65,7 @@ def login_user():
     if user is None or not user.check_password(password):
         return jsonify({'error': 'Invalid credentials'}), 401
 
-    return jsonify({'message': 'Login successful', 'user_id': user.id}), 200
+    return jsonify({'message': 'Login successful!', 'user_id': user.id}), 200
 
 @app_views.route('/logout', methods=['POST'])
 def logout():
