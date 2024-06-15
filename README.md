@@ -39,4 +39,4 @@ Contributions are most welcome. If you have cool ways of making this web applica
 
 ## Licensing.
 
-This project is licensed under the MIT License.
+This project is licensed under the [MIT License](LICENSE).
