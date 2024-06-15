@@ -20,7 +20,7 @@ document.getElementById('registerForm').addEventListener('submit', function (eve
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
 
-    fetch('http://127.0.0.1:5000/api/v1/register', {
+    fetch('https://asap-menu.onrender.com/api/v1/register', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -51,7 +51,7 @@ document.getElementById('loginForm').addEventListener('submit', function (event)
         },
         body: JSON.stringify({username, password})
     }
-    fetch('http://127.0.0.1:5000/api/v1/login', requestOptions)
+    fetch('https://asap-menu.onrender.com/api/v1/login', requestOptions)
     .then(response => response.json())
     .then(data => {
         if (data.error) {
